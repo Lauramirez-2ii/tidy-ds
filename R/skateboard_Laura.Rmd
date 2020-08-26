@@ -9,14 +9,14 @@ author: Laura
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, comment = "/")
 ```
 
 
 
 * Use the packages tidyverse and here.
 
-```{r packages-1, eval = FALSE}
+```{r packages-1, eval = FALSE, echo=FALSE}
 library(tidyverse)
 library(here)
 ```
@@ -62,7 +62,7 @@ gapminder <- path %>% read_csv()
 * Print and explore `gampinder` under the chunk and with `view()`.
 
 ```{r gapminder-1, eval = FALSE}
-_________
+gapminder
 ```
 
 ```{r gapminder-2, echo = FALSE}
@@ -86,8 +86,8 @@ You will now visualise the data with ggplot2. This is how it works:
 * Create a boxplot of `lifeExp` for each `continent` (`?geom_boxplot()`).
 
 ```{r boxplot-1, eval = FALSE}
-ggplot(data = _________, aes(x = _________, y = _______)) +
-  geom________()
+ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
+  geom_boxplot()
 ```
 
 ```{r boxplot-2, echo = FALSE}
