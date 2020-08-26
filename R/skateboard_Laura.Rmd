@@ -1,6 +1,7 @@
 ---
-title: Skateboard
+title: Skateboard 
 output: github_document
+author: Laura
 ---
 
 **Collapse all chunks with Alt+O / Cmd+Option+O**
@@ -31,7 +32,7 @@ You are about to read data but this code fails. The path is unsafe,  fix it:
 * Experiment with "Knit > Knit Directory".
 
 ```{r test-here, error=TRUE}
-read_csv("data/gapminder.csv")
+read_csv(here("data/gapminder.csv"))
 ```
 
 
