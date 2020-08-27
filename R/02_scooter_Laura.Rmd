@@ -5,7 +5,7 @@ params:
   continent:
     choices: [Africa, Americas, Asia, Europe, Oceania]
     multiple: true
-    value: [Africa, Americas, Asia, Europe, Oceania]
+    value: [Europe]
 ---
 
 **Collapse all chunks with Alt+O / Cmd+Option+O**
@@ -34,7 +34,8 @@ gapminder <- read_csv(here("data", "gapminder.csv"))
 * Explore `gapminder` with `glimpse()`.
 
 ```{r glimpse-1, eval=FALSE}
-gapminder %>% _______()
+gapminder %>% glimpse()
+
 ```
 
 ```{r glimpse-2, echo=FALSE}
@@ -43,11 +44,11 @@ gapminder %>% glimpse()
 
 
 
-* Using `filter()`, subset rows where `continent` is "Europe".
+* Using `filter()`, subset rows where `continent` is "Americas" or "Europe".
 
 ```{r filter-continents-1, eval=FALSE}
-continents <- c("________", "______")
-_________ %>% ______(continent %in% continents)
+continents <- c("America", "Europe")
+gapminder %>% filter(continent %in% continents)
 ```
 
 ```{r filter-continents-2, echo=FALSE}
@@ -69,10 +70,11 @@ params
 * Using `filter()`, subset rows where `continent` is `params$continent`.
 
 ```{r filter-params-continent-1, eval=FALSE}
-filtered <- _________ %>% 
-  ______(continent %in% ______$continent)
-
+filtered <- gapminder %>% 
+  filter(continent %in% params$continent)
+#why do we need the $continent
 filtered
+
 ```
 
 ```{r filter-params-continent-2, echo=FALSE}
@@ -88,15 +90,15 @@ filtered
 
 ```{r selected-1, eval=FALSE}
 selected <- filtered %>% 
-  ______(-country, -_________)
   select(-country, -continent)
 
 selected
+
 ```
 
 ```{r selected-2, echo=FALSE}
 selected <- filtered %>% 
-  select(-country, -continent)
+  select(country,continent)
 
 selected
 ```
